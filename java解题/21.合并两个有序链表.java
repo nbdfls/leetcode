@@ -15,34 +15,27 @@
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
+
+ // 链表 迭代或者递归。
+//  递归思路：终止条件：当两个链表都为空时，表示我们对链表已合并完成。
+//  如何递归：我们判断 l1 和 l2 头结点哪个更小，然后较小结点的 next 指针指向其余结点的合并结果。（调用递归）
+
 class Solution {
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-        ListNode res = new ListNode();
-        if(l2.val>l1.val){
-            res.val = l1.val;
-            l1 = l1.next;
-        }else{
-            res.val = l2.val;
-            l2 = l2.next;
-        }
-        ListNode temp = new ListNode();
-        res.next = temp;
-        while(true){
-            temp=getGreater(l1,l2);
-            temp.next = temp1;
-            if(temp==l1){
+        ListNode prehead = new ListNode();
+        ListNode prev = prehead;
+        while(l1 != null&&l2!=null){
+            if(l1.val<=l2.val){
+                prev.next = l1;
                 l1 = l1.next;
             }else{
+                prev.next = l2;
                 l2 = l2.next;
             }
+            prev = prev.next;
         }
-    }
-    public ListNode getGreater(ListNode l1,ListNode l2){
-        if(l1.val>l2.val){
-            return l1;
-        }else{
-            return l2;
-        }
+        prev.next = l1==null?l2:l1;
+        return prehead.next;
     }
 }
 // @lc code=end
