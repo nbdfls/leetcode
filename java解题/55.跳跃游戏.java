@@ -1,8 +1,16 @@
 /*
+ * @Author: fanfan
+ */
+/*
  * @lc app=leetcode.cn id=55 lang=java
  *
  * [55] 跳跃游戏
+ * 贪心
+ * 每一步都维持一个最远到达记录，当到第i个位置，判断最远到达记录是否能达到第I位，如果能，则更新最远到达记录，如果不能，则返回false
+ *  动态规划也可
+ * dp[i]代表第i位是否可达 
  */
+
 class Solution {
     public boolean canJump(int[] nums) {
         int reach = 0;
