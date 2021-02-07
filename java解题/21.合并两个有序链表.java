@@ -5,7 +5,7 @@
  */
 
 // @lc code=start
-/**
+/* *
  * Definition for singly-linked list.
  * public class ListNode {
  *     int val;
@@ -14,7 +14,7 @@
  *     ListNode(int val) { this.val = val; }
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
- */
+ * */
 
  // 链表 迭代或者递归。
 //  递归思路：终止条件：当两个链表都为空时，表示我们对链表已合并完成。
